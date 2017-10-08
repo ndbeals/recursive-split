@@ -2,6 +2,19 @@
 
 A pair of simple bash scripts to aid in easily and recusively splitting all files over a given size within a given directory (split-direcotry) and then later on merging and verifying the split files (unsplit-directory)
 
+## Installation
+### Recommended
+```
+git clone https://github.com/ndbeals/recursive-split.git
+cd recursive-split
+chmod +x *-directory
+sudo cp *-directory /usr/local/bin
+```
+### Lazy Way
+```
+curl -s https://raw.githubusercontent.com/ndbeals/recursive-split/master/install.sh | sudo bash
+```
+
 ---
 
 ## split-directory
