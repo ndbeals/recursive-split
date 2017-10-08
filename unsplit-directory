@@ -1,0 +1,35 @@
+#!/bin/bash
+
+ARG1=${1:-.}
+
+if [[ -f "$ARG1"/splitfiles.txt ]]
+then
+	while read -r oldhash file; do
+		if [[ $(ls "$ARG1/$file".* 2>/dev/null ) ]]
+		then
+
+		    cat "$ARG1/$file".* > "$ARG1/$file"
+
+	    	newhash=$(md5sum "$ARG1/$file" | awk '{print $1}')
+
+	    	if [[ "$oldhash" == "$newhash" ]]
+			then
+				echo -e "\e[92mSUCCESS\e[39m: Hash Passed: $file"
+
+				rm -f "$ARG1/$file".*
+		   	else
+	    		echo -e "\e[91mFAILURE\e[39m: Hash Failed: $file"
+			fi
+		else
+
+			echo -e "\e[91mFAILURE\e[39m: $file\nAll chunks missing"
+
+		fi
+	done <"$ARG1"/splitfiles.txt
+
+	rm "$ARG1"/splitfiles.txt
+else
+
+	echo -e "\e[91mFAILURE\e[39m: missing splitfiles.txt, can't reconstruct, do it manually"
+
+fi
