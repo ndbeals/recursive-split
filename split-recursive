@@ -7,7 +7,7 @@ cd "$ARG1"
 
 find . -type f -size +"$ARG2" -exec bash -c "split -a 4 -b \"$ARG2\" {} {}. ;
 	md5sum {} >> splitfiles.txt ;
-	echo -e \"\e[92mSPLIT\e[39m \"$ARG2\" chunks: {} \" ;
+	echo -e \"\e[92mSPLIT\e[39m: \"$ARG2\" chunks: {} \" ;
 	rm -f {}" \;
 
 sort splitfiles.txt | uniq > temp.tmp

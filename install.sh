@@ -5,8 +5,8 @@ mkdir -p "$tmpdir"
 
 cd "$tmpdir"
 
-if wget -q https://raw.githubusercontent.com/ndbeals/recursive-split/master/split-directory > /dev/null &&
-	wget -q https://raw.githubusercontent.com/ndbeals/recursive-split/master/unsplit-directory > /dev/null
+if wget -q https://raw.githubusercontent.com/ndbeals/recursive-split/master/split-recursive > /dev/null &&
+	wget -q https://raw.githubusercontent.com/ndbeals/recursive-split/master/merge-recursive > /dev/null
 then
 	chmod +x "$tmpdir"/*
 
