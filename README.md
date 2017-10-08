@@ -7,8 +7,8 @@ A pair of simple bash scripts to aid in easily and recusively splitting all file
 ```
 git clone https://github.com/ndbeals/recursive-split.git
 cd recursive-split
-chmod +x *-directory
-sudo cp *-directory /usr/local/bin
+chmod +x *-recursive
+sudo cp *-recursive /usr/local/bin
 ```
 ### Lazy Way
 ```
